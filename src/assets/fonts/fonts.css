@@ -1,0 +1,16 @@
+/*FONT CSS PAGES to be imported*/
+
+/*NOWAY */
+@font-face {
+    font-family: 'nowayregular';
+    src: url('./Noway-Regular-webfont/noway-regular-webfont.eot');
+    src: url('./Noway-Regular-webfont/noway-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./Noway-Regular-webfont/noway-regular-webfont.woff2') format('woff2'),
+         url('./Noway-Regular-webfont/noway-regular-webfont.woff') format('woff'),
+         url('./Noway-Regular-webfont/noway-regular-webfont.ttf') format('truetype'),
+         url('./Noway-Regular-webfont/noway-regular-webfont.svg#nowayregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

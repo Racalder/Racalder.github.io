@@ -11,7 +11,7 @@
 				homeInfo: [
 					// 1
 					{
-						t: 'Ramiro Calderon 1',
+						t: 'Ramiro Calderon',
 						d: 'This is some descritonThis is some descritonThis is some descritonThis is some descriton',
 						i: true,
 						iClass: 'btn btn-secondary',

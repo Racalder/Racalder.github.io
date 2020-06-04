@@ -1,19 +1,19 @@
 <template>
 	<div id="header" class="row px-0 mx-0 justify-content-center justify-content-md-end">
-				<div class="align-items-center text-white border border-dark m-3">
-					<div class="btn  btn-primary" @click="pushHome">
+				<div class="align-text-center m-3 nav-bar">
+					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushHome">
 						Home
 					</div>
-					-
-					<div class="btn  btn-primary" @click="pushWork">
+					<!-- <div class="nav-text align-middle"> /</div> -->
+					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushWork">
 						Work
 					</div>
-					-
-					<div class="btn btn-primary" @click="pushAbout">
+					<!-- <div class="nav-text align-middle"> /</div> -->
+					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushAbout">
 						About
 					</div>
-					-
-					<div class="btn btn-primary" @click="pushContact">
+					<!-- <div class="nav-text align-middle"> /</div> -->
+					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushContact">
 						Contact
 					</div>
 <!-- 
@@ -45,3 +45,31 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.nav-text{
+		font-size: 1.4rem;
+		display: inline-block;
+		text-align: center !important;
+	}
+
+	.btn-primary{
+		color: #010B13 !important;
+		background-color: white !important;
+		border-radius: 0px;	
+		border-color: white;
+		border-bottom: 0.8px solid white;		
+	}
+
+	.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+		color: #808589 !important;
+		/*border-color: #010B13;
+		border-style: solid;
+		border-bottom: 10px;
+		border-top: 0px;
+		border-right: 0px;
+		border-left: 0px;*/
+
+		border-bottom: 0.8px solid black;
+	}
+</style>

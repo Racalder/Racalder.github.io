@@ -1,7 +1,7 @@
 <template>
-	<div class="px-3 mx-3 w-75">
-		<div id="home-title-text" class="text-nowrap"><h1>{{statementInfo.t}}</h1></div>
-		<div id="home-desc-text">{{statementInfo.d}}</div>
+	<div class="px-3 mx-3 mt-5 w-75">
+		<div id="home-title-text" class="text-nowrap h1">{{statementInfo.t}}</div>
+		<div id="home-desc-text" class="text-muted h4">{{statementInfo.d}}</div>
 		<div class="d-flex justify-content-center">
 			<div v-bind:class="selectedIndicator[0]" @click="selectStatement0"></div>	
 			<div v-bind:class="selectedIndicator[1]" @click="selectStatement1"></div>	
@@ -44,3 +44,9 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.btn{
+		border-radius: 0;
+	}
+</style>

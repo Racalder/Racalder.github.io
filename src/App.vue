@@ -13,23 +13,52 @@
 	@import "./assets/fonts/fonts.css";
 
 	#app{
-		min-width: 575.98px;
+		min-width: 375px;
 		border-style: solid;
-		border-color: 010B13; /*262626;*/ /*#141414; Chinese BLack*/ /*#282e33;*/ /*#212529; Maybe*/
+		border-color: #010B13; /*262626;*/ /*#141414; Chinese BLack*/ /*#282e33;*/ /*#212529; Maybe*/
 		border-width: 60px;
+		color: #010B13;
 	}
 
 </style>
 
 <style lang="scss">
-	@import "./node_modules/bootstrap/scss/functions.scss";
-	@import "./node_modules/bootstrap/scss/variables.scss";
+	@import "./node_modules/bootstrap/scss/_functions.scss";
+	@import "./node_modules/bootstrap/scss/_variables.scss";
 	@import "./node_modules/bootstrap/scss/mixins";
 
-	@include media-breakpoint-up(md) {
-		body {
-			font-size: 50px;
+	// Less than  576px
+	@include media-breakpoint-down(xs) {
+		html{
+			font-size: 12px;
+		}
+
+		#app{
+			border-width: 40px;
 		}
 	}
+
+	// > 576px
+	@include media-breakpoint-up(sm) {
+		html{
+			font-size: 10px;
+		}
+	}
+
+	// > 768px
+	@include media-breakpoint-up(md) {
+		html{
+			font-size: 10px;
+		}
+	}
+
+	// > 992px
+	@include media-breakpoint-up(lg) {
+		html{
+			font-size: 12px;
+		}
+	}
+
+
 
 </style>

@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="h-100 d-flex flex-column">
 		<header-view></header-view>
-		<div id="content" class="row mx-0 text-center align-items-center justify-content-center flex-grow-1">	
+		<div id="content" class="row mx-0 flex-grow-1">	
 			<router-view/>
 		</div>
 		<footer-view></footer-view>
@@ -16,7 +16,7 @@
 		min-width: 375px;
 		border-style: solid;
 		border-color: #010B13; /*262626;*/ /*#141414; Chinese BLack*/ /*#282e33;*/ /*#212529; Maybe*/
-		border-width: 60px;
+		border-width: 0px;
 		color: #010B13;
 	}
 
@@ -34,7 +34,7 @@
 		}
 
 		#app{
-			border-width: 40px;
+			border-width: 0px;
 		}
 	}
 

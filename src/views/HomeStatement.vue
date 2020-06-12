@@ -1,5 +1,5 @@
 <template>
-	<div class="px-3 mx-3 mt-5 w-75">
+	<div class="h-100">
 		<div id="home-title-text" class="text-nowrap h1">{{statementInfo.t}}</div>
 		<div id="home-desc-text" class="text-muted h4">{{statementInfo.d}}</div>
 		<div class="d-flex justify-content-center">

@@ -10,10 +10,10 @@
 			</div>
 			<div class="btn" > SEE work</div> -->
 
-			<div class="w-75 homeText align-self-center"><em>Ramiro Calderon</em> <span class="text-muted" style="font-size: 0.75em;">{{currentDes}}</span></div>
+			<div class="w-75 homeText align-self-center"><em>Ramiro Calderon</em> <transition name="slide-fade" mode="out-in"><component v-bind:is="selectedDes"></component></transition></div>
 
 			<!-- <div class="w-75 align-self-center homeText">Ramiro Calderon <em class="text-muted" style="font-size: 3rem;">{{currentDes}}</em></div> -->
-			<div class="d-flex flex-row align-self-center mt-5 w-75 justify-content-center">
+			<div id="indicators" class="d-flex flex-row align-self-center justify-content-center w-75">
 							<div v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
 							<div v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
 							<div v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
@@ -30,45 +30,24 @@
 				homeInfo: [
 					// 1
 					{
-						t: 'Ramiro Calderon',
-						d: 'is a a placeholder description that will have something useful later',
-						i: true,
 						btnClass: 'btn btn-secondary mx-3',
-						ind: 0, 
-
 					},
 					// 2
 					{
-						t: 'Ramiro Calderon 2',
-						d: '2is a a placeholder description that will have something useful later',
-						i: false,
 						btnClass: 'btn btn-outline-secondary mx-3',
-						ind: 1, 
-
 					},
 
 					// 3
 					{	
-						t: 'Ramiro Caldeon 3',
-						d: '3is a a placeholder description that will have something useful later',
-						i: false,
 						btnClass: 'btn btn-outline-secondary mx-3',
-						ind: 2
-
-
 					},
 					// 4
 					{
-						t: 'Ramiro Caldeon 4',
-						d: '4is a a placeholder description that will have something useful later',
-						i: false,
 						btnClass: 'btn btn-outline-secondary mx-3',
-						ind: 3
-
 					}
 				],
-				currentDes: '', 
-				selectedStatement: 0,				
+				selectedStatement: 0,
+				selectedDes: 'des-0',		
 				
 			}
 		},
@@ -77,24 +56,36 @@
 			selectStatement(nextStatement){
 				this.homeInfo[this.selectedStatement].btnClass = 'btn btn-outline-secondary mx-3';
 				this.homeInfo[nextStatement].btnClass = 'btn btn-secondary mx-3';
-				this.currentDes = this.homeInfo[nextStatement].d;
+				this.selectedDes = 'des-' + nextStatement;
 				this.selectedStatement = nextStatement;
+				
 			}
 		},
 		computed: {
-			activeHomeInfo(){
-				return this.homeInfo[Object.keys(this.homeInfo.filter(function(u){return u.i}))[0]];
-			}
+			
 		},
 		created(){
-			this.currentDes = this.homeInfo[0].d
+
 		},
 		components: {
+			'des-0': {
+				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 0</span>'
+			},
+			'des-1': {
+				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 1</span>'
+			},
+			'des-2': {
+				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 2</span>'
+			},
+			'des-3': {
+				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 3</span>'
+			},
 		},
 	}
 </script>
 
 <style scoped>
+
 	.homeText{
 		font-family: freight-display-pro;
 		font-size: 5rem;
@@ -104,8 +95,28 @@
 	}
 
 	.btn{
-		height: 5%;
-		width: 40%;
+		height: 20px;
+		width: 20px;
+
+		border-radius: 100%;
+	}
+
+	/*Transitions*/
+
+	.slide-fade-enter-active {
+		transition: all .3s ease;
+	}
+	.slide-fade-leave-active {
+		transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+	}
+	.slide-fade-enter, .slide-fade-leave-to{
+		transform: translateX(10px);
+		opacity: 0;
+	}
+
+	#indicators{
+		/*margin-bottom: -20%;*/
+		margin-top: 5%;
 	}
 
 </style>

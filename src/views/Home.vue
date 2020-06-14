@@ -10,7 +10,7 @@
 			</div>
 			<div class="btn" > SEE work</div> -->
 
-			<div class="w-75 homeText align-self-center"><em>Ramiro Calderon</em> <transition name="slide-fade" mode="out-in"><component v-bind:is="selectedDes"></component></transition></div>
+			<div class="w-75 homeText align-self-center"><div class="homeTitle">Ramiro Calderon</div> <transition name="slide-fade" mode="out-in"><component v-bind:is="selectedDes"></component></transition></div>
 
 			<!-- <div class="w-75 align-self-center homeText">Ramiro Calderon <em class="text-muted" style="font-size: 3rem;">{{currentDes}}</em></div> -->
 			<div id="indicators" class="d-flex flex-row align-self-center justify-content-center w-75">
@@ -30,7 +30,7 @@
 				homeInfo: [
 					// 1
 					{
-						btnClass: 'btn btn-secondary mx-3',
+						btnClass: 'btn btn-outline-secondary mx-3',
 					},
 					// 2
 					{
@@ -55,7 +55,7 @@
 		methods: {
 			selectStatement(nextStatement){
 				this.homeInfo[this.selectedStatement].btnClass = 'btn btn-outline-secondary mx-3';
-				this.homeInfo[nextStatement].btnClass = 'btn btn-secondary mx-3';
+				this.homeInfo[nextStatement].btnClass = 'btn btn-outline-secondary mx-3 active';
 				this.selectedDes = 'des-' + nextStatement;
 				this.selectedStatement = nextStatement;
 				
@@ -69,38 +69,79 @@
 		},
 		components: {
 			'des-0': {
-				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 0</span>'
+				template: '<div style="font-size: 0.6em; color: #cf5c36;">Is a placeholder description that will have something useful later 0</div>'
 			},
 			'des-1': {
-				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 1</span>'
+				template: '<div style="font-size: 0.6em; color: #a1bf82;">Is a placeholder description that will have something useful later 1</div>'
 			},
 			'des-2': {
-				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 2</span>'
+				template: '<div style="font-size: 0.6em; color: #cf5c36;">Is a placeholder description that will have something useful later 2</div>'
 			},
 			'des-3': {
-				template: '<span class="text-muted" style="font-size: 0.75em;">is a placeholder description that will have something useful later 3</span>'
+				template: '<div style="font-size: 0.6em;">Is a placeholder description that will have something useful later 3</div>'
 			},
+			'des-load': {
+				template: '<div style="font-size: 0.6em;"> <span style="color: transparent; text-shadow: none;">is a placeholder description that will have something useful later 3<</span></div>'
+			}
 		},
 	}
 </script>
 
 <style scoped>
+		
+	/*TEXT*/
 
 	.homeText{
-		font-family: freight-display-pro;
+		font-family: freight-big-pro, serif;
+		font-weight: 600;
+		font-style: normal;
+
 		font-size: 5rem;
+		color: black; 
+		text-shadow: 1px 1px 7px white;
 	}
+
+	.homeTitle{
+		font-size: 10rem;
+		font-family: freight-display-pro, serif;
+		font-weight: 500;
+		font-style: normal;
+		margin-bottom: -2%;
+	}
+
 	.desText{
 		font-size: 3rem;
 	}
 
-	.btn{
+	/*BUTTONS*/
+
+	.btn-outline-secondary{
 		height: 20px;
 		width: 20px;
-
-		border-radius: 100%;
+		/*border-color: #D3D5D7;*/
+		background-color: white;
+		border-color: transparent;
+		border-radius: 50%;
+		box-shadow: 0px 0px 6px #50514f;
+		
 	}
 
+	.btn-outline-secondary:focus, .btn-outline-secondary:active,.btn-outline-secondary.active{
+		/*background-color: #050517 !important;*/
+/*		border-radius: 50%;
+*/		/*border-color: #D3D5D7 !important;*/
+		/*background-color: #cf5c36 !important;*/
+		border-color: transparent !important;
+		background-color: #50514f !important;
+		box-shadow:0px 0px 0px 10px #50514f inset, 0px 0px 6px #50514f;
+
+
+	}
+
+	.btn-outline-secondary:hover{
+		background-color: white;
+
+	}
 	/*Transitions*/
 
 	.slide-fade-enter-active {
@@ -116,7 +157,7 @@
 
 	#indicators{
 		/*margin-bottom: -20%;*/
-		margin-top: 5%;
+		margin-top: 2%;
 	}
 
 </style>

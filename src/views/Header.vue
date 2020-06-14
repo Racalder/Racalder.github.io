@@ -48,14 +48,14 @@
 
 <style scoped>
 	.nav-text{
-		font-size: 1.4rem;
+		font-size: 1.7rem;
 		display: inline-block;
 		text-align: center !important;
 	}
 
 	.btn-primary{
 		color: #010B13 !important;
-		background-color: white !important;
+		background-color: transparent !important;
 		border-radius: 0px;	
 		border-color: white;
 		border-bottom: 0.8px solid white;		

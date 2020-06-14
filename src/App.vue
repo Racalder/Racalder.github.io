@@ -14,10 +14,14 @@
 
 	#app{
 		min-width: 375px;
-		border-style: solid;
-		border-color: #010B13; /*262626;*/ /*#141414; Chinese BLack*/ /*#282e33;*/ /*#212529; Maybe*/
-		border-width: 0px;
-		color: #010B13;
+/*		border-style: solid;
+		border-color: white;*/ /*262626;*/ /*#141414; Chinese BLack*/ /*#282e33;*/ /*#212529; Maybe*/
+		/*border: 60px solid white;
+		border-right: 0px;
+		border-left: 0px;*/
+		/*background-color: #222222;*/
+		background-color: #FDFFF7;
+		color: #D3D5D7;
 	}
 
 </style>
@@ -26,6 +30,7 @@
 	@import "./node_modules/bootstrap/scss/_functions.scss";
 	@import "./node_modules/bootstrap/scss/_variables.scss";
 	@import "./node_modules/bootstrap/scss/mixins";
+
 
 	// Less than  576px
 	@include media-breakpoint-down(xs) {
@@ -59,6 +64,9 @@
 		}
 	}
 
-
-
 </style>
+
+<script type="text/javascript">
+	const feather = require('feather-icons')
+	feather.replace();
+</script>

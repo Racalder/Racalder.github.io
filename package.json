@@ -10,6 +10,8 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
+    "feather-icons": "^4.28.0",
+    "jam-icons": "^2.0.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "sass-resources-loader": "^2.0.3",

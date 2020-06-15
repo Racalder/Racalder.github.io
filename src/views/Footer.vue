@@ -31,14 +31,14 @@
 	}
 	.footer-icon-linkedin{
 		margin-right: 0px;
-		margin-bottom: 0px;
+		margin-bottom: -4px;
 	}
 
 	#app-footer{
 		font-size: 2rem;
 
 		font-family: freight-display-pro, serif;
-		font-weight: 500;
+		font-weight: 700;
 		font-style: normal;
 		color: black;
 	}

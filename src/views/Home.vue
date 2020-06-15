@@ -23,7 +23,6 @@
 </template>
 
 <script>
-
 	export default{
 		data() {
 			return{
@@ -107,7 +106,11 @@
 		font-weight: 500;
 		font-style: normal;
 		margin-bottom: -2%;
-	}
+		color: #353535;
+	
+		/*color: black;*/
+}
+
 
 	.desText{
 		font-size: 3rem;
@@ -119,7 +122,7 @@
 		height: 20px;
 		width: 20px;
 		/*border-color: #D3D5D7;*/
-		background-color: white;
+		background-color: black;
 		border-color: transparent;
 		border-radius: 50%;
 		box-shadow: 0px 0px 6px #50514f;
@@ -131,16 +134,21 @@
 /*		border-radius: 50%;
 */		/*border-color: #D3D5D7 !important;*/
 		/*background-color: #cf5c36 !important;*/
-		border-color: transparent !important;
-		background-color: #50514f !important;
-		box-shadow:0px 0px 0px 10px #50514f inset, 0px 0px 6px #50514f;
+		border-color: black !important;
+		border-width: 0px;
+		background-color: white !important;
+		box-shadow: 0px 0px 6px #50514f;
 
 
 	}
 
 	.btn-outline-secondary:hover{
-		background-color: white;
+		background-color: #50514f !important;
 
+	}
+
+	.btn-outline-secondary.active:hover{
+		background-color: white !important;
 	}
 	/*Transitions*/
 

@@ -1,6 +1,6 @@
 <template>
-	<div id="header" class="row px-0 mx-0 justify-content-center justify-content-md-end">
-				<div class="align-text-center m-3 nav-bar">
+	<div id="header-wrapper" class="row px-0 mx-0 my-3 justify-content-center justify-content-md-end">
+				<div class="align-text-center nav-bar">
 					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushHome">
 						Home
 					</div>
@@ -13,15 +13,11 @@
 						About
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushContact">
+					<div class="nav-text btn btn-primary ml-2 pl-1 py-0" @click="pushContact">
 						Contact
 					</div>
-<!-- 
-					<router-link class="btn btn-primary" to="/">Home</router-link> /
-					<router-link to="/about">About</router-link>/
-					<router-link to="/Work">Work</router-link>/
-					<router-link to="/Contact">Contact</router-link>
- -->				</div>
+				</div>
+					<div id="header-border" class="w-100"></div>
 			</div>
 </template>
 
@@ -47,11 +43,19 @@
 </script>
 
 <style scoped>
+	#header-wrapper{
+		font-family: gilroy-light;
+	}
+	#header-border{
+		height: 5px;
+		background-color: #1C1C1C;
+		border-radius: 10px;
+	}
 	.nav-text{
 		font-size: 1.7rem;
 		display: inline-block;
-		text-align: center !important;
 	}
+
 
 	.btn-primary{
 		color: #010B13 !important;

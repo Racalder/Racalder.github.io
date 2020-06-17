@@ -1,24 +1,51 @@
 <template>
-		<div class="d-flex flex-column h-100 w-100 text-center justify-content-center">
-			<!-- <div id="home-title-text" class="text-nowrap h1">{{homeInfo[0].t}}</div>
-			<div id="home-desc-text" class="text-muted h4">{{homeInfo[0].d}}</div>
-			<div class="d-flex justify-content-center">
-				<div v-bind:class="selectedIndicator[0]" @click="selectStatement0"></div>	
-				<div v-bind:class="selectedIndicator[1]" @click="selectStatement1"></div>	
-				<div v-bind:class="selectedIndicator[2]" @click="selectStatement2"></div>	
-				<div v-bind:class="selectedIndicator[3]" @click="selectStatement3"></div>	
-			</div>
-			<div class="btn" > SEE work</div> -->
+		<div id="home-wrapper" class="d-flex flex-column w-100 justify-content-center">
 
-			<div class="w-75 homeText align-self-center"><div class="homeTitle">Ramiro Calderon</div> <transition name="slide-fade" mode="out-in"><component v-bind:is="selectedDes"></component></transition></div>
+			<div id="home-portrait-wrapper">
 
-			<!-- <div class="w-75 align-self-center homeText">Ramiro Calderon <em class="text-muted" style="font-size: 3rem;">{{currentDes}}</em></div> -->
-			<div id="indicators" class="d-flex flex-row align-self-center justify-content-center w-75">
-							<div v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
-							<div v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
-							<div v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
-							<div v-bind:class="homeInfo[3].btnClass" @click="selectStatement(3)"></div>	
+				<div class="container-fluid h-100 px-1">
+					<div class="row h-50">
+						<div class="col home-top-row">
+							<div id="home-name" class="home-text-bold ">
+								<div>Ramiro</div>
+								<div :class="calderonClass">Calderon</div>
+							</div>
 						</div>
+						<div class="col home-top-row d-flex flex-column align-items-end justify-content-start">
+							<div class="home-des-text home-text-light text-right border">
+								<transition name="slide-fade" mode="out-in">
+									<component v-bind:is="selectedDes"></component>
+								</transition>
+							</div>
+							<div id="home-indicators" class="d-flex flex-row justify-content-end mx-1">
+								<div id="home-indicator-0" v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
+								<div id="home-indicator-1" v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
+								<div id="home-indicator-2" v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
+								<div id="home-indicator-3" v-bind:class="homeInfo[3].btnClass" @click="selectStatement(3)"></div>	
+							</div>
+						</div>
+					</div>
+					<div class="row h-50">
+						<div class="col d-flex align-items-end justify-content-start home-bottom-row">
+							<div class="d-flex flex-column home-text-bold">
+								<div class="d-flex flex-row">
+									<div id="home-language-es" :class="esColor" @click="changeLangToEs" class="home-language-text">ES</div> <div>|</div>
+								</div>
+								<div id="home-language-eng" :class="engColor" @click="changeLangToEng" class="home-language-text">ENG</div></div>
+						</div>
+						<div class="col d-flex align-items-end justify-content-end home-bottom-row">
+							<!-- <span class="home-icon" data-jam="linkedin" data-fill="#2B2A2A"></span>
+							<span class="home-icon" data-jam="envelope" data-fill="#2B2A2A"></span> -->
+							<jam-envelope/>
+							<jam-github-square/>
+							<jam-linkedin-square/>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 </template>
 
@@ -29,76 +56,143 @@
 				homeInfo: [
 					// 1
 					{
-						btnClass: 'btn btn-outline-secondary mx-3',
+						btnClass: 'btn btn-outline-secondary embed-responsive embed-responsive-1by1 active',
 					},
 					// 2
 					{
-						btnClass: 'btn btn-outline-secondary mx-3',
+						btnClass: 'btn btn-outline-secondary embed-responsive embed-responsive-1by1',
 					},
 
 					// 3
 					{	
-						btnClass: 'btn btn-outline-secondary mx-3',
+						btnClass: 'btn btn-outline-secondary embed-responsive embed-responsive-1by1',
 					},
 					// 4
 					{
-						btnClass: 'btn btn-outline-secondary mx-3',
+						btnClass: 'btn btn-outline-secondary embed-responsive embed-responsive-1by1',
 					}
 				],
 				selectedStatement: 0,
-				selectedDes: 'des-0',		
+				selectedDes: 'des-0',
+				calderonClass: 'home-text-color-0',
+				engSelected: true, 		
 				
 			}
 		},
 
 		methods: {
 			selectStatement(nextStatement){
-				this.homeInfo[this.selectedStatement].btnClass = 'btn btn-outline-secondary mx-3';
-				this.homeInfo[nextStatement].btnClass = 'btn btn-outline-secondary mx-3 active';
+				console.log("Selecting Statement: " + nextStatement);
+				this.homeInfo[this.selectedStatement].btnClass = 'btn btn-outline-secondary embed-responsive embed-responsive-1by1';
+				this.homeInfo[nextStatement].btnClass = 'btn btn-outline-secondary active embed-responsive embed-responsive-1by1';
 				this.selectedDes = 'des-' + nextStatement;
 				this.selectedStatement = nextStatement;
-				
+				this.esColor();
+				this.engColor();
+			},
+			changeLangToEs(){
+				this.engSelected = false;
+			}, 
+			changeLangToEng(){
+				this.engSelected = true;
 			}
 		},
 		computed: {
-			
+			esColor(){
+				if(this.engSelected){
+					return 'home-text-color-defualt';
+				}
+				else{
+					return 'home-text-color-' + this.selectedStatement; 
+				}
+			},
+			engColor(){
+				if(this.engSelected){
+					return'home-text-color-' + this.selectedStatement;
+				}
+				else{
+					return 'home-text-color-defualt'
+				}
+			}
 		},
 		created(){
 
 		},
 		components: {
 			'des-0': {
-				template: '<div style="font-size: 0.6em; color: #cf5c36;">Is a placeholder description that will have something useful later 0</div>'
+				template: '<div class="home-text-color-defualt">0 Is a <span id="t0" class="home-text-color-0 home-text-bold"> product design engineer </span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-1': {
-				template: '<div style="font-size: 0.6em; color: #a1bf82;">Is a placeholder description that will have something useful later 1</div>'
+				template: '<div class="home-text-color-default">1 Is a <span class="home-text-color-1 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-2': {
-				template: '<div style="font-size: 0.6em; color: #cf5c36;">Is a placeholder description that will have something useful later 2</div>'
+				template: '<div class="home-text-color-default">2 Is a <span class="home-text-color-2 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-3': {
-				template: '<div style="font-size: 0.6em;">Is a placeholder description that will have something useful later 3</div>'
+				template: '<div class="home-text-color-default">Is a <span class="home-text-color-3 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-load': {
-				template: '<div style="font-size: 0.6em;"> <span style="color: transparent; text-shadow: none;">is a placeholder description that will have something useful later 3<</span></div>'
+				template: '<div class="home-text-color-default">Is a <span class="home-text-color-4 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			}
 		},
 	}
 </script>
 
-<style scoped>
+<style>
+
+
+	/*DIVS*/
+	#home-portrait-wrapper{
+		height: 100%;
+		width: 100%;
+		background-image: url("../assets/img/landingpage_portrait.jpg");
+		background-size: cover; 
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	.home-top-row{
+		margin-top: 0px;
+	}
+	.home-bottom-row{
+		margin-bottom: 0px;
+	}
+	
 		
 	/*TEXT*/
 
-	.homeText{
-		font-family: freight-big-pro, serif;
-		font-weight: 600;
-		font-style: normal;
-
-		font-size: 5rem;
-		color: black; 
-		text-shadow: 1px 1px 7px white;
+	#home-name{
+		font-size: 4rem;
 	}
+
+	.home-des-text{
+		font-size: 1.5rem;
+		width:60%;
+	}
+
+	.home-text-color-default{
+		color: #2B2A2A;
+	}
+	.home-text-color-0{
+		color: #BF4343;
+	}
+	.home-text-color-1{
+		color: #4AA2BF; 
+	}
+	.home-text-color-2{
+		color: #8C6868; 
+	}
+	.home-text-color-3{
+		color: #48C270;
+	}
+
+	.home-text-bold{
+		font-family: gilroy-extrabold;
+	}
+	.home-text-light{
+		font-family: gilroy-light;
+	}
+
 
 	.homeTitle{
 		font-size: 10rem;
@@ -109,7 +203,7 @@
 		color: #353535;
 	
 		/*color: black;*/
-}
+	}
 
 
 	.desText{
@@ -118,38 +212,82 @@
 
 	/*BUTTONS*/
 
-	.btn-outline-secondary{
-		height: 20px;
-		width: 20px;
-		/*border-color: #D3D5D7;*/
-		background-color: black;
-		border-color: transparent;
-		border-radius: 50%;
-		box-shadow: 0px 0px 6px #50514f;
+	#home-indicators .btn-outline-secondary{
+		width: 25%;
+		margin: 0% 5% 0% 5%;
+		background-color: #C8C8CA;
+		border-color: #2B2A2A;
+		border-radius: 100%;
 		
 	}
 
-	.btn-outline-secondary:focus, .btn-outline-secondary:active,.btn-outline-secondary.active{
-		/*background-color: #050517 !important;*/
-/*		border-radius: 50%;
-*/		/*border-color: #D3D5D7 !important;*/
-		/*background-color: #cf5c36 !important;*/
-		border-color: black !important;
-		border-width: 0px;
-		background-color: white !important;
-		box-shadow: 0px 0px 6px #50514f;
-
-
+	#home-indicators #home-indicator-0.btn-outline-secondary:focus, 
+	#home-indicators #home-indicator-0.btn-outline-secondary:active, 
+	#home-indicators #home-indicator-0.btn-outline-secondary.active, 
+	#home-indicators #home-indicator-0.btn-outline-secondary:hover,
+	#home-indicators #home-indicator-0.btn-outline-secondary.active:hover
+	{
+		background-color: #BF4343 !important;
 	}
 
-	.btn-outline-secondary:hover{
-		background-color: #50514f !important;
-
+	#home-indicators #home-indicator-1.btn-outline-secondary:focus, 
+	#home-indicators #home-indicator-1.btn-outline-secondary:active, 
+	#home-indicators #home-indicator-1.btn-outline-secondary.active, 
+	#home-indicators #home-indicator-1.btn-outline-secondary:hover,
+	#home-indicators #home-indicator-1.btn-outline-secondary.active:hover
+	{
+		background-color: #4AA2BF !important;
 	}
 
-	.btn-outline-secondary.active:hover{
-		background-color: white !important;
+	#home-indicators #home-indicator-2.btn-outline-secondary:focus, 
+	#home-indicators #home-indicator-2.btn-outline-secondary:active, 
+	#home-indicators #home-indicator-2.btn-outline-secondary.active, 
+	#home-indicators #home-indicator-2.btn-outline-secondary:hover,
+	#home-indicators #home-indicator-2.btn-outline-secondary.active:hover
+	{
+		background-color: #8C6868 !important;
 	}
+
+	#home-indicators #home-indicator-3.btn-outline-secondary:focus, 
+	#home-indicators #home-indicator-3.btn-outline-secondary:active, 
+	#home-indicators #home-indicator-3.btn-outline-secondary.active, 
+	#home-indicators #home-indicator-3.btn-outline-secondary:hover,
+	#home-indicators #home-indicator-3.btn-outline-secondary.active:hover
+	{
+		background-color: #48C270 !important;
+	}
+
+	.home-language-text:hover
+	{
+		cursor: pointer;
+		opacity: 0.7;
+	}
+
+	.home-language-text:hover
+	{
+		cursor: pointer;
+		opacity: 0.6;
+	}
+
+	.home-icon{
+		width: 30px;
+		height: 30px;
+	}
+
+	.jam:hover{
+		cursor: pointer;
+		opacity: 0.6;
+	}
+
+	.jam{
+		width: 6%;
+		height: auto;
+		margin-bottom: 2px;
+		margin-left: 3%;
+	}
+
+
+
 	/*Transitions*/
 
 	.slide-fade-enter-active {
@@ -163,9 +301,99 @@
 		opacity: 0;
 	}
 
-	#indicators{
-		/*margin-bottom: -20%;*/
-		margin-top: 2%;
+	#home-indicators{
+		margin-top: 1%;
+		width: 18%;
 	}
 
 </style>
+
+<!-- Bootstrap Responsive Styling -->
+
+<!-- <style lang="scss">
+	@import "./node_modules/bootstrap/scss/_functions.scss";
+	@import "./node_modules/bootstrap/scss/_variables.scss";
+	@import "./node_modules/bootstrap/scss/mixins";
+
+
+	// Less than  576px
+	@include media-breakpoint-down(xs) {
+
+		#home-wrapper{
+			height: 100%;
+		}
+
+		#home-portrait-wrapper{
+			width: 100%;
+			overflow: hidden;
+		}
+
+		#home-portrait-wrapper img{
+			object-fit: cover;
+			width: 100%;
+			height: 200px;
+		}
+		
+	}
+
+	// > 576px
+	@include media-breakpoint-up(sm) {
+
+		#home-wrapper{
+			height: 100%;
+		}
+
+		#home-portrait-wrapper{
+			width: 100%;
+			overflow: hidden;
+		}
+
+		#home-portrait-wrapper img{
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+		
+	}
+
+	// > 768px
+	@include media-breakpoint-up(md) {
+
+		#home-wrapper{
+			height: 100%;
+		}
+
+		#home-portrait-wrapper{
+			width: 100%;
+			overflow: hidden;
+		}
+
+		#home-portrait-wrapper img{
+			object-fit: cover;
+			width: 100%;
+			height: 400px;
+		}
+		
+	}
+
+	// > 992px
+	@include media-breakpoint-up(lg) {
+
+		#home-wrapper{
+			height: 100%;
+		}
+
+		#home-portrait-wrapper{
+			width: 100%;
+			overflow: hidden;
+		}
+
+		#home-portrait-wrapper img{
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+		
+	}
+
+</style> -->

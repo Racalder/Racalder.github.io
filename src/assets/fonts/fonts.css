@@ -14,6 +14,22 @@
 
 }
 
+/* GILROY */
+@font-face {
+    font-family: 'gilroy-extrabold';
+    src: url('./gilroy/Fonts/gilroy-extrabold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gilroy-light';
+    src: url('./gilroy/Fonts/gilroy-light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 /* Freight from Adobe Fonts */
 /**/
 /**/

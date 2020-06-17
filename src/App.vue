@@ -1,10 +1,11 @@
 <template>
 	<div id="app" class="h-100 d-flex flex-column">
+		<div id="app-spacer" class=""></div>
 		<header-view></header-view>
 		<div id="content" class="row mx-0 flex-grow-1">	
 			<router-view/>
 		</div>
-		<footer-view></footer-view>
+		<!-- <footer-view></footer-view> -->
 	</div>
 </template>
 
@@ -14,14 +15,9 @@
 
 	#app{
 		min-width: 375px;
-/*		border-style: solid;
-		border-color: white;*/ /*262626;*/ /*#141414; Chinese BLack*/ /*#282e33;*/ /*#212529; Maybe*/
-		/*border: 60px solid white;
-		border-right: 0px;
-		border-left: 0px;*/
-		/*background-color: #222222;*/
-		background-color: #FDFFF7;
-		color: #D3D5D7;
+		padding: 60px; 
+		background-color: #F1F1F1;
+		color: #2B2A2A;
 	}
 
 </style>

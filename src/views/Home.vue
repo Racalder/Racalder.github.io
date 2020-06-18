@@ -8,7 +8,7 @@
 						<div class="col home-top-row">
 							<div id="home-name" class="home-text-bold ">
 								<div>Ramiro</div>
-								<div :class="calderonClass">Calderon</div>
+								<div :class="calderonColor">Calderon</div>
 							</div>
 						</div>
 						<div class="col home-top-row d-flex flex-column align-items-end justify-content-start">
@@ -34,8 +34,6 @@
 								<div id="home-language-eng" :class="engColor" @click="changeLangToEng" class="home-language-text">ENG</div></div>
 						</div>
 						<div class="col d-flex align-items-end justify-content-end home-bottom-row">
-							<!-- <span class="home-icon" data-jam="linkedin" data-fill="#2B2A2A"></span>
-							<span class="home-icon" data-jam="envelope" data-fill="#2B2A2A"></span> -->
 							<jam-envelope/>
 							<jam-github-square/>
 							<jam-linkedin-square/>
@@ -74,7 +72,6 @@
 				],
 				selectedStatement: 0,
 				selectedDes: 'des-0',
-				calderonClass: 'home-text-color-0',
 				engSelected: true, 		
 				
 			}
@@ -89,6 +86,7 @@
 				this.selectedStatement = nextStatement;
 				this.esColor();
 				this.engColor();
+				this.calderonColor();
 			},
 			changeLangToEs(){
 				this.engSelected = false;
@@ -113,6 +111,9 @@
 				else{
 					return 'home-text-color-defualt'
 				}
+			},
+			calderonColor(){
+				return 'home-text-color-' + this.selectedStatement;
 			}
 		},
 		created(){
@@ -146,7 +147,7 @@
 		height: 100%;
 		width: 100%;
 		background-image: url("../assets/img/landingpage_portrait.jpg");
-		background-size: cover; 
+		background-size: contain; 
 		background-position: center center;
 		background-repeat: no-repeat;
 	}

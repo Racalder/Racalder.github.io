@@ -1,7 +1,34 @@
 <template>
-		<div id="home-wrapper" class="d-flex flex-column w-100 justify-content-center">
+		<div id="home-wrapper" class="d-flex flex-column w-100 justify-content-start">
 
-			<div id="home-portrait-wrapper">
+			<div id="home-row-text" class="row align-items-center" ref="homeRowText" :style="homeRowTextStyle">
+				<div class="col-3">
+					<div id="home-name" class="home-text-bold ">
+						<div ref="ramiroRef">Ramiro</div>
+						<div :class="calderonColor">Calderon</div>
+					</div>
+				</div>
+				<div class="col-8 d-flex justify-content-end">
+					<div class="home-des-text home-text-light text-right">
+						<transition name="slide-fade" mode="out-in">
+							<component v-bind:is="selectedDes"></component>
+						</transition>
+					</div>
+				</div>
+				<div class="col-1 h-100 d-flex align-items-center">
+					<div id="home-indicators" class="d-flex flex-column align-items-end justify-content-between mx-1 w-100">
+						<div id="home-indicator-0" v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
+						<div id="home-indicator-1" v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
+						<div id="home-indicator-2" v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
+						<div id="home-indicator-3" v-bind:class="homeInfo[3].btnClass" @click="selectStatement(3)"></div>	
+					</div>
+				</div>
+			</div>
+			<div id="home-portrait-wrapper" class="row mx-0" ref="imgWrapper" :style="imgWrapperHeight">
+				
+			</div>
+			<footer-view></footer-view>
+			<!-- <div id="home-portrait-wrapper">
 
 				<div class="container-fluid h-100 px-1">
 					<div class="row h-50">
@@ -41,7 +68,7 @@
 
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 		</div>
@@ -72,7 +99,9 @@
 				],
 				selectedStatement: 0,
 				selectedDes: 'des-0',
-				engSelected: true, 		
+				engSelected: true,
+				imgWrapperHeight: '',
+				homeRowTextStyle: '',
 				
 			}
 		},
@@ -93,6 +122,12 @@
 			}, 
 			changeLangToEng(){
 				this.engSelected = true;
+			},
+			updateImageParent(){
+				this.imgWrapperHeight = 'height: ' + (this.$refs.imgWrapper.clientWidth * 0.3923) + 'px;'; 
+			},
+			updateHomeRowText(){
+				this.homeRowTextStyle = 'height: ' + (this.$refs.imgWrapper.clientHeight * 0.537) + 'px;';
 			}
 		},
 		computed: {
@@ -117,11 +152,21 @@
 			}
 		},
 		created(){
+			this.$nextTick(function(){
+				var elWidth = this.$el.clientWidth; 
 
+				var tempImgHeight = (elWidth * 0.3923);
+				this.imgWrapperHeight = 'height: ' + tempImgHeight + 'px;';
+				window.addEventListener('resize', this.updateImageParent);
+
+				this.homeRowTextStyle = 'height: ' + (tempImgHeight * 0.537) + 'px;';
+				window.addEventListener('resize', this.updateHomeRowText);
+
+			})
 		},
 		components: {
 			'des-0': {
-				template: '<div class="home-text-color-defualt">0 Is a <span id="t0" class="home-text-color-0 home-text-bold"> product design engineer </span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="home-text-color-defualt">0 Is a <span id="t0" class="home-text-color-0 home-text-bold"> product design engineer </span> and this is modestly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-1': {
 				template: '<div class="home-text-color-default">1 Is a <span class="home-text-color-1 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
@@ -144,7 +189,7 @@
 
 	/*DIVS*/
 	#home-portrait-wrapper{
-		height: 100%;
+		/*height: 100%;*/
 		width: 100%;
 		background-image: url("../assets/img/landingpage_portrait.jpg");
 		background-size: contain; 
@@ -168,7 +213,7 @@
 
 	.home-des-text{
 		font-size: 1.5rem;
-		width:60%;
+		width:90%;
 	}
 
 	.home-text-color-default{
@@ -213,10 +258,16 @@
 
 	/*BUTTONS*/
 
+	#home-indicators{
+		/*margin-top: 0%;*/
+		/*width: 18%;*/
+		height: 60%;
+
+	}
+
 	#home-indicators .btn-outline-secondary{
 		width: 25%;
-		margin: 0% 5% 0% 5%;
-		background-color: #C8C8CA;
+		background-color: #FFFFFF;
 		border-color: #2B2A2A;
 		border-radius: 100%;
 		
@@ -302,10 +353,7 @@
 		opacity: 0;
 	}
 
-	#home-indicators{
-		margin-top: 1%;
-		width: 18%;
-	}
+	
 
 </style>
 

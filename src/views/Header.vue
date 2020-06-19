@@ -1,5 +1,5 @@
 <template>
-	<div id="header-wrapper" class="row px-0 mx-0 my-3 justify-content-center justify-content-md-end">
+	<div id="header-wrapper" class="row p-0 m-0 justify-content-center justify-content-md-end">
 				<div class="align-text-center nav-bar">
 					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushHome">
 						Home

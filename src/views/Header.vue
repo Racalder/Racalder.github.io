@@ -1,23 +1,24 @@
 <template>
-	<div id="header-wrapper" class="row p-0 m-0 justify-content-center justify-content-md-end">
+	<div id="header-wrapper" class="row p-0 m-0 justify-content-center justify-content-md-end home-text-bold">
 				<div class="align-text-center nav-bar">
-					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushHome">
+					<div class="nav-text btn btn-primary p-0" @click="pushHome">
 						Home
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushWork">
+					<div class="nav-text btn btn-primary p-0" @click="pushWork">
 						Work
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary mx-2 px-1 py-0" @click="pushAbout">
+					<div class="nav-text btn btn-primary p-0" @click="pushAbout">
 						About
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary ml-2 pl-1 py-0" @click="pushContact">
-						Contact
+					<div class="nav-text btn btn-primary p-0" @click="pushContact">
+						Photography
 					</div>
 				</div>
-					<div id="header-border" class="w-100"></div>
+					<div class="header-border w-100"></div>
+					<div class="header-border w-100" style="background-color: #F1F1F1"></div>
 			</div>
 </template>
 
@@ -43,17 +44,16 @@
 </script>
 
 <style scoped>
-	#header-wrapper{
-		font-family: gilroy-light;
+	.nav-bar{
+		word-spacing: 1.3em;
 	}
-	#header-border{
-		height: 5px;
+	.header-border{
+		height: 7px;
 		background-color: #1C1C1C;
-		border-radius: 10px;
 	}
 	.nav-text{
-		font-size: 1.7rem;
-		display: inline-block;
+		font-size: 50%;
+		margin-bottom: -3px;
 	}
 
 

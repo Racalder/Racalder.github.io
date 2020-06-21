@@ -2,75 +2,41 @@
 		<div id="home-wrapper" class="d-flex flex-column w-100 justify-content-start">
 
 			<div id="home-row-text" class="row align-items-center" ref="homeRowText" :style="homeRowTextStyle">
-				<div class="col-3">
-					<div id="home-name" class="home-text-bold ">
+				<div id="home-col-name" class="col-3 d-flex align-items-center">
+					<div id="home-name" class="home-text-bold" :style="homeNameTextStyle">
 						<div ref="ramiroRef">Ramiro</div>
 						<div :class="calderonColor">Calderon</div>
 					</div>
 				</div>
-				<div class="col-8 d-flex justify-content-end">
-					<div class="home-des-text home-text-light text-right">
+				<div id="home-col-des" class="col-9 d-flex justify-content-end align-items-center">
+					<div class="d-flex h-100 align-items-center home-des-text home-text-light text-right overflow-hidden" :style="homeDesTextStyle">
 						<transition name="slide-fade" mode="out-in">
 							<component v-bind:is="selectedDes"></component>
 						</transition>
 					</div>
-				</div>
-				<div class="col-1 h-100 d-flex align-items-center">
-					<div id="home-indicators" class="d-flex flex-column align-items-end justify-content-between mx-1 w-100">
+					<div id="home-indicators" class="d-flex flex-column align-items-end justify-content-around">
 						<div id="home-indicator-0" v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
 						<div id="home-indicator-1" v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
 						<div id="home-indicator-2" v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
 						<div id="home-indicator-3" v-bind:class="homeInfo[3].btnClass" @click="selectStatement(3)"></div>	
 					</div>
+				
 				</div>
 			</div>
 			<div id="home-portrait-wrapper" class="row mx-0" ref="imgWrapper" :style="imgWrapperHeight">
 				
 			</div>
-			<footer-view></footer-view>
-			<!-- <div id="home-portrait-wrapper">
-
-				<div class="container-fluid h-100 px-1">
-					<div class="row h-50">
-						<div class="col home-top-row">
-							<div id="home-name" class="home-text-bold ">
-								<div>Ramiro</div>
-								<div :class="calderonColor">Calderon</div>
-							</div>
-						</div>
-						<div class="col home-top-row d-flex flex-column align-items-end justify-content-start">
-							<div class="home-des-text home-text-light text-right border">
-								<transition name="slide-fade" mode="out-in">
-									<component v-bind:is="selectedDes"></component>
-								</transition>
-							</div>
-							<div id="home-indicators" class="d-flex flex-row justify-content-end mx-1">
-								<div id="home-indicator-0" v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
-								<div id="home-indicator-1" v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
-								<div id="home-indicator-2" v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
-								<div id="home-indicator-3" v-bind:class="homeInfo[3].btnClass" @click="selectStatement(3)"></div>	
-							</div>
-						</div>
-					</div>
-					<div class="row h-50">
-						<div class="col d-flex align-items-end justify-content-start home-bottom-row">
-							<div class="d-flex flex-column home-text-bold">
-								<div class="d-flex flex-row">
-									<div id="home-language-es" :class="esColor" @click="changeLangToEs" class="home-language-text">ES</div> <div>|</div>
-								</div>
-								<div id="home-language-eng" :class="engColor" @click="changeLangToEng" class="home-language-text">ENG</div></div>
-						</div>
-						<div class="col d-flex align-items-end justify-content-end home-bottom-row">
-							<jam-envelope/>
-							<jam-github-square/>
-							<jam-linkedin-square/>
-						</div>
-
+			<div id="home-footer">
+				<div  id="home-footer-row" class="row container-fluid">
+					<div id="home-footer-col-left" class="col-6 d-flex justifycontent-start align-content-start home-text-bold">
+						<div id="home-language-es" :class="esColor" @click="changeLangToEs" class="home-language-text">ES</div> <div class="home-text-color-default"> &nbsp;|&nbsp; </div> <div id="home-language-eng" :class="engColor" @click="changeLangToEng" class="home-language-text">ENG</div></div>
+					<div id="home-footer-col-right" class="col-6 d-flex justify-content-end align-content-start">
+						<!-- <jam-envelope/>
+						<jam-github-square/> -->
+						<jam-linkedin-square/>
 					</div>
 				</div>
-			</div> -->
-
-
+			</div>
 		</div>
 </template>
 
@@ -102,6 +68,8 @@
 				engSelected: true,
 				imgWrapperHeight: '',
 				homeRowTextStyle: '',
+				homeNameTextStyle: '',
+				homeDesTextStyle: '', 
 				
 			}
 		},
@@ -128,6 +96,10 @@
 			},
 			updateHomeRowText(){
 				this.homeRowTextStyle = 'height: ' + (this.$refs.imgWrapper.clientHeight * 0.537) + 'px;';
+			},
+			updateHomeText(){
+				// this.homeNameTextStyle = 
+				// this.homeDesTextStyle = 'font-size: ' +
 			}
 		},
 		computed: {
@@ -166,19 +138,19 @@
 		},
 		components: {
 			'des-0': {
-				template: '<div class="home-text-color-defualt">0 Is a <span id="t0" class="home-text-color-0 home-text-bold"> product design engineer </span> and this is modestly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="home-text-color-defualt home-des-text-content">0 Is a <span id="t0" class="home-text-color-0 home-text-bold"> product design engineer </span> and this is modestly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description mostly a placeholder descriptionmostly a</div>'
 			},
 			'des-1': {
-				template: '<div class="home-text-color-default">1 Is a <span class="home-text-color-1 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="home-text-color-default home-des-text-content">1 Is a <span class="home-text-color-1 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-2': {
-				template: '<div class="home-text-color-default">2 Is a <span class="home-text-color-2 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="home-text-color-default home-des-text-content">2 Is a <span class="home-text-color-2 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-3': {
-				template: '<div class="home-text-color-default">Is a <span class="home-text-color-3 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="home-text-color-default home-des-text-content">Is a <span class="home-text-color-3 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-load': {
-				template: '<div class="home-text-color-default">Is a <span class="home-text-color-4 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="home-text-color-default home-des-text-content">Is a <span class="home-text-color-4 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			}
 		},
 	}
@@ -203,17 +175,59 @@
 	.home-bottom-row{
 		margin-bottom: 0px;
 	}
-	
+
+	#home-col-name, #home-col-des{
+		height: 50%;
+	}
+	#home-col-name{
+		padding-right: 0px;
+	}
+	#home-col-des{
+		padding-left: 0px;
+	}
+
+	#home-name, #home-des-text, #home-indicators{
+		height: 95%;
+	}
+
+	#home-footer-row.container-fluid, #home-footer-col-left, #home-footer-col-right{
+		margin: 0px;
+		padding: 0px;
+		margin-top: 10px;
+	}
+
+	.jam:hover{
+		cursor: pointer;
+		opacity: 0.6;
+	}
+
+	.jam{
+		width: 5%;
+		height: auto;
+		margin-bottom: 2px;
+		margin-left: 2%;
+	}
+
 		
 	/*TEXT*/
+	#home-footer-col-left{
+		font-size: 50%;
+	}
 
 	#home-name{
-		font-size: 4rem;
+		font-size: 140%;
+		line-height: 1.3;
 	}
 
 	.home-des-text{
-		font-size: 1.5rem;
-		width:90%;
+		font-size: 65%;
+		width: 90%;
+		line-height: 1.22;
+	}
+
+	.home-des-text-content{
+		align-content: center;
+		align-self: center;
 	}
 
 	.home-text-color-default{
@@ -259,17 +273,16 @@
 	/*BUTTONS*/
 
 	#home-indicators{
-		/*margin-top: 0%;*/
-		/*width: 18%;*/
-		height: 60%;
-
+		width: 1.6%;
+		margin-left: 5%;
 	}
 
 	#home-indicators .btn-outline-secondary{
-		width: 25%;
+		width: 100%;
 		background-color: #FFFFFF;
 		border-color: #2B2A2A;
 		border-radius: 100%;
+		box-shadow: 0px 0px 3px #070707;
 		
 	}
 
@@ -325,20 +338,6 @@
 		width: 30px;
 		height: 30px;
 	}
-
-	.jam:hover{
-		cursor: pointer;
-		opacity: 0.6;
-	}
-
-	.jam{
-		width: 6%;
-		height: auto;
-		margin-bottom: 2px;
-		margin-left: 3%;
-	}
-
-
 
 	/*Transitions*/
 

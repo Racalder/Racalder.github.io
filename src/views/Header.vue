@@ -1,24 +1,24 @@
 <template>
 	<div id="header-wrapper" class="row p-0 m-0 justify-content-center justify-content-md-end home-text-bold">
 				<div class="align-text-center nav-bar">
-					<div class="nav-text btn btn-primary p-0" @click="pushHome">
+					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushHome">
 						Home
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary p-0" @click="pushWork">
+					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushWork">
 						Work
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary p-0" @click="pushAbout">
+					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushAbout">
 						About
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary p-0" @click="pushContact">
+					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushContact">
 						Photography
 					</div>
 				</div>
-					<div class="header-border w-100"></div>
-					<div class="header-border w-100" style="background-color: #F1F1F1"></div>
+					<div class="header-border"></div>
+					<div class="header-border" style="background-color: #F1F1F1"></div>
 			</div>
 </template>
 
@@ -48,6 +48,7 @@
 		word-spacing: 1.3em;
 	}
 	.header-border{
+		width: 100%;
 		height: 7px;
 		background-color: #1C1C1C;
 	}
@@ -57,23 +58,12 @@
 	}
 
 
-	.btn-primary{
-		color: #010B13 !important;
+	#header-wrapper .btn-primary{
 		background-color: transparent !important;
-		border-radius: 0px;	
-		border-color: white;
-		border-bottom: 0.8px solid white;		
+		border-color: transparent;
 	}
 
 	.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
 		color: #808589 !important;
-		/*border-color: #010B13;
-		border-style: solid;
-		border-bottom: 10px;
-		border-top: 0px;
-		border-right: 0px;
-		border-left: 0px;*/
-
-		border-bottom: 0.8px solid black;
 	}
 </style>

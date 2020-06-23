@@ -3,6 +3,10 @@
 		<div id="app" class="d-flex flex-column" :style="contentSize">
 			<div id="app-spacer" class=""></div>
 			<header-view></header-view>
+			<div style="height: 14px;" class="d-flex flex-column align-items-center d-none">
+				<div class="header-border"></div>
+				<div class="header-border" style="background-color: #F1F1F1"></div>
+			</div>
 			<div id="content" class="row mx-0 flex-grow-1">	
 				<router-view/>
 			</div>
@@ -53,6 +57,12 @@
 	html, body {
 		height: 100%;
 	}
+
+	/*.header-border{
+		width: 80vw;
+		height: 7px;
+		background-color: #1C1C1C;
+	}*/
 
 	#app-aspect-ratio-wrapper{
 		background-color: #FFFFFF;

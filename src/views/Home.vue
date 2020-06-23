@@ -14,7 +14,7 @@
 							<component v-bind:is="selectedDes"></component>
 						</transition>
 					</div>
-					<div id="home-indicators" class="d-flex flex-column align-items-end justify-content-around">
+					<div id="home-indicators" class="d-flex flex-column align-items-end justify-content-between">
 						<div id="home-indicator-0" v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
 						<div id="home-indicator-1" v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
 						<div id="home-indicator-2" v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
@@ -23,9 +23,9 @@
 				
 				</div>
 			</div>
-			<div id="home-portrait-wrapper" class="row mx-0" ref="imgWrapper" :style="imgWrapperHeight">
-				
-			</div>
+
+			<div id="home-portrait-wrapper" class="row mx-0" ref="imgWrapper" :style="imgWrapperHeight"></div>
+
 			<div id="home-footer">
 				<div  id="home-footer-row" class="row container-fluid">
 					<div id="home-footer-col-left" class="col-6 d-flex justifycontent-start align-content-start home-text-bold">
@@ -160,6 +160,9 @@
 
 
 	/*DIVS*/
+	#home-row-text{
+		padding-bottom: 3%;
+	}
 	#home-portrait-wrapper{
 		/*height: 100%;*/
 		width: 100%;
@@ -177,7 +180,7 @@
 	}
 
 	#home-col-name, #home-col-des{
-		height: 50%;
+		height: 60%;
 	}
 	#home-col-name{
 		padding-right: 0px;
@@ -186,8 +189,8 @@
 		padding-left: 0px;
 	}
 
-	#home-name, #home-des-text, #home-indicators{
-		height: 95%;
+	#home-indicators{
+		height: 80%;
 	}
 
 	#home-footer-row.container-fluid, #home-footer-col-left, #home-footer-col-right{

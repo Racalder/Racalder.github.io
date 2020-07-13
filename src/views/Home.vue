@@ -1,42 +1,63 @@
 <template>
-		<div id="home-wrapper" class="d-flex flex-column w-100 justify-content-start">
+		<div id="home-wrapper" class="d-flex flex-column h-100 w-100 justify-content-start">
 
-			<div id="home-row-text" class="row align-items-center" ref="homeRowText" :style="homeRowTextStyle">
+			<!-- <div id="home-row-text" class="d-flex flex-row">
+				<div id="home-text-left-indicator" class="w-25 d-flex align-items-center justify-content-end"><jam-chevron-circle-left/></div>
+				<div id="home-text-title-col" class="d-flex flex-column w-50 justify-content-center">
+					<div id="home-text-title-wrapper" class="d-flex flex-row"><div id="home-text-title-spacer" style="color:transparent;">I’m a&nbsp;</div><div id="home-text-title" class="home-text-bold">Ramiro Calderon</div></div>
+					<div id="home-text-des-wrapper" class="d-flex flex-row"><div class="home-text-color-muted" >I’m a&nbsp;</div><component :is="selectedDes"></component></div>
+				</div>
+				<div id="home-text-right-indicator" class="w-25 d-flex align-items-center justify-content-start"><jam-chevron-circle-right/></div>
+
+			</div> -->
+
+			<div id="home-row-text" class="d-flex flex-row text-nowrap">
+				<div id="home-text-left-indicator" class="w-25 d-flex align-items-center justify-content-end"><jam-chevron-circle-left/></div>
+				<div id="home-text-title-col" class="d-flex flex-column w-50 justify-content-center align-items-center">
+					<div id="home-title-center" class="">
+						<div id="home-text-title-wrapper" class="d-flex flex-row"><div id="home-text-title-spacer" style="color:transparent;">I’m a&nbsp;</div><div id="home-text-title" class="home-text-bold">Ramiro Calderon</div></div>
+						<div id="home-text-des-wrapper" class="d-flex flex-row"><div class="home-text-color-muted" >I’m a&nbsp;</div><component :is="selectedDes"></component></div>
+					</div>
+				</div>
+				<div id="home-text-right-indicator" class="w-25 d-flex align-items-center justify-content-start"><jam-chevron-circle-right/></div>
+			</div>
+
+			<div id="home-portrait-wrapper" ref="imgWrapper"></div>
+
+			<!-- <div id="home-row-text" class="align-items-center" ref="homeRowText">
 				<div id="home-col-name" class="col-3 d-flex align-items-center">
-					<div id="home-name" class="home-text-bold" :style="homeNameTextStyle">
+					<div id="home-name" class="home-text-bold">
 						<div ref="ramiroRef">Ramiro</div>
 						<div :class="calderonColor">Calderon</div>
 					</div>
 				</div>
 				<div id="home-col-des" class="col-9 d-flex justify-content-end align-items-center">
-					<div class="d-flex h-100 align-items-center home-des-text home-text-light text-right overflow-hidden" :style="homeDesTextStyle">
+					<div class="d-flex h-100 align-items-center home-des-text home-text-light text-right overflow-hidden">
 						<transition name="slide-fade" mode="out-in">
 							<component v-bind:is="selectedDes"></component>
 						</transition>
 					</div>
-					<div id="home-indicators" class="d-flex flex-column align-items-end justify-content-between">
+				
+				</div>
+			</div> -->
+
+					<!-- <div id="home-indicators" class="d-flex flex-column align-items-end justify-content-between">
 						<div id="home-indicator-0" v-bind:class="homeInfo[0].btnClass" @click="selectStatement(0)"></div>	
 						<div id="home-indicator-1" v-bind:class="homeInfo[1].btnClass" @click="selectStatement(1)"></div>	
 						<div id="home-indicator-2" v-bind:class="homeInfo[2].btnClass" @click="selectStatement(2)"></div>	
 						<div id="home-indicator-3" v-bind:class="homeInfo[3].btnClass" @click="selectStatement(3)"></div>	
-					</div>
-				
-				</div>
-			</div>
+					</div> -->
 
-			<div id="home-portrait-wrapper" class="row mx-0" ref="imgWrapper" :style="imgWrapperHeight"></div>
-
-			<div id="home-footer">
+<!-- 			<div id="home-footer">
 				<div  id="home-footer-row" class="row container-fluid">
 					<div id="home-footer-col-left" class="col-6 d-flex justifycontent-start align-content-start home-text-bold">
 						<div id="home-language-es" :class="esColor" @click="changeLangToEs" class="home-language-text">ES</div> <div class="home-text-color-default"> &nbsp;|&nbsp; </div> <div id="home-language-eng" :class="engColor" @click="changeLangToEng" class="home-language-text">ENG</div></div>
 					<div id="home-footer-col-right" class="col-6 d-flex justify-content-end align-content-start">
-						<!-- <jam-envelope/>
-						<jam-github-square/> -->
 						<jam-linkedin-square/>
 					</div>
 				</div>
 			</div>
+ -->
 		</div>
 </template>
 
@@ -91,16 +112,13 @@
 			changeLangToEng(){
 				this.engSelected = true;
 			},
-			updateImageParent(){
-				this.imgWrapperHeight = 'height: ' + (this.$refs.imgWrapper.clientWidth * 0.3923) + 'px;'; 
-			},
-			updateHomeRowText(){
-				this.homeRowTextStyle = 'height: ' + (this.$refs.imgWrapper.clientHeight * 0.537) + 'px;';
-			},
-			updateHomeText(){
-				// this.homeNameTextStyle = 
-				// this.homeDesTextStyle = 'font-size: ' +
-			}
+			// updateImageParent(){
+			// 	this.imgWrapperHeight = 'height: ' + (this.$refs.imgWrapper.clientWidth * 0.3923) + 'px;'; 
+			// },
+			// updateHomeRowText(){
+			// 	this.homeRowTextStyle = 'height: ' + (this.$refs.imgWrapper.clientHeight * 0.537) + 'px;';
+			// },
+			
 		},
 		computed: {
 			esColor(){
@@ -124,21 +142,25 @@
 			}
 		},
 		created(){
-			this.$nextTick(function(){
-				var elWidth = this.$el.clientWidth; 
+			// this.$nextTick(function(){
+			// 	var elWidth = this.$el.clientWidth; 
 
-				var tempImgHeight = (elWidth * 0.3923);
-				this.imgWrapperHeight = 'height: ' + tempImgHeight + 'px;';
-				window.addEventListener('resize', this.updateImageParent);
+			// 	var tempImgHeight = (elWidth * 0.3923);
+			// 	this.imgWrapperHeight = 'height: ' + tempImgHeight + 'px;';
+			// 	window.addEventListener('resize', this.updateImageParent);
 
-				this.homeRowTextStyle = 'height: ' + (tempImgHeight * 0.537) + 'px;';
-				window.addEventListener('resize', this.updateHomeRowText);
+			// 	this.homeRowTextStyle = 'height: ' + (tempImgHeight * 0.537) + 'px;';
+			// 	window.addEventListener('resize', this.updateHomeRowText);
 
-			})
+			// })
+		},
+		destroyed(){
+			// window.removeEventListener('resize', this.updateImageParent);
+			// window.removeEventListener('resize', this.updateHomeRowText);
 		},
 		components: {
 			'des-0': {
-				template: '<div class="home-text-color-defualt home-des-text-content">0 Is a <span id="t0" class="home-text-color-0 home-text-bold"> product design engineer </span> and this is modestly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description mostly a placeholder descriptionmostly a</div>'
+				template: '<div class="home-text-color-0 home-des-text-content">mechanical design engineer</div>'
 			},
 			'des-1': {
 				template: '<div class="home-text-color-default home-des-text-content">1 Is a <span class="home-text-color-1 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
@@ -160,11 +182,25 @@
 
 
 	/*DIVS*/
+	/*#home-text-title-wrapper, #home-text-des-wrapper{
+		position: relative;
+		left: 30%;
+	}*/
+	#home-text-title{
+		font-size: 320%;
+	}
+	#home-text-title-spacer, #home-text-des-wrapper{
+		font-size: 250%;
+		font-family: poppins, sans-serif;
+		font-weight: 400;
+		font-style: normal;
+	}
 	#home-row-text{
-		padding-bottom: 3%;
+		/*padding-bottom: 3%;*/
+		height: 35%;
 	}
 	#home-portrait-wrapper{
-		/*height: 100%;*/
+		height: 65%;
 		width: 100%;
 		background-image: url("../assets/img/landingpage_portrait.jpg");
 		background-size: contain; 
@@ -236,8 +272,12 @@
 	.home-text-color-default{
 		color: #2B2A2A;
 	}
+	.home-text-color-muted{
+		color: #A19D9D;
+	}
 	.home-text-color-0{
-		color: #BF4343;
+		/*color: #BF4343;*/
+		color: #CF5C36;
 	}
 	.home-text-color-1{
 		color: #4AA2BF; 
@@ -253,7 +293,10 @@
 		font-family: gilroy-extrabold;
 	}
 	.home-text-light{
-		font-family: gilroy-light;
+		/*font-family: gilroy-light;*/
+		font-family: poppins, sans-serif;
+		font-weight: 400;
+		font-style: normal;
 	}
 
 

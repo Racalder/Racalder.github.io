@@ -1,15 +1,8 @@
 <template>
-	<div id="app-aspect-ratio-wrapper" class="h-100 m-0 p-0 d-flex justify-content-center" :style="appAspectRatioWrapperStyle">
-		<div id="app" class="d-flex flex-column" :style="contentSize">
-			<div id="app-spacer" class=""></div>
-			<header-view></header-view>
-			<div style="height: 14px;" class="d-flex flex-column align-items-center d-none">
-				<div class="header-border"></div>
-				<div class="header-border" style="background-color: #F1F1F1"></div>
-			</div>
-			<div id="content" class="row mx-0 flex-grow-1">	
-				<router-view/>
-			</div>
+	<div id="app-wrapper" class="h-100 w-100 d-flex flex-column">
+		<header-view></header-view>
+		<div id="app-content">	
+			<router-view/>
 		</div>
 	</div>
 </template>
@@ -18,34 +11,38 @@
 	export default{
 		data(){
 			return{
-				contentSize: '',
-				currHeight: 0,
-				currWidth: 0,
-				appAspectRatioWrapperStyle: '', 
+				// contentSize: '',
+				// currHeight: 0,
+				// currWidth: 0,
+				// appAspectRatioWrapperStyle: '', 
 			}
 		},
 		created(){
-			this.appAspectRatioWrapperStyle = 'font-size: ' + (document.body.clientHeight * 0.04) + 'px;';
-			console.log(this.appAspectRatioWrapperStyle);
-			this.currHeight = document.body.clientHeight;
-			this.currWidth = 1.33 * this.currHeight;
-			this.contentSize = 'height: 100%; width: ' + this.currWidth + 'px;';
-			this.$nextTick(function(){
-				window.addEventListener('resize', this.updateSize);
-				window.addEventListener('resize', this.updateAppAspectRatioWrapperStyle);
-			})
+			// this.appAspectRatioWrapperStyle = 'font-size: ' + (document.body.clientHeight * 0.04) + 'px;';
+			// console.log(this.appAspectRatioWrapperStyle);
+			// this.currHeight = document.body.clientHeight;
+			// this.currWidth = 1.33 * this.currHeight;
+			// this.contentSize = 'height: 100%; width: ' + this.currWidth + 'px;';
+			// this.$nextTick(function(){
+			// 	window.addEventListener('resize', this.updateSize);
+			// 	window.addEventListener('resize', this.updateAppAspectRatioWrapperStyle);
+			// })
 		},
 		methods: {
-			updateSize(){
-				this.currHeight = this.$el.clientHeight;
-				this.currWidth = 1.33 * this.currHeight;
-				this.contentSize = 'height: 100%; width: ' + this.currWidth + 'px;';
-			},
-			updateAppAspectRatioWrapperStyle(){
-				//Updates the Website Base Font Size
-				this.appAspectRatioWrapperStyle = 'font-size: ' + (document.body.clientHeight * 0.04) + 'px;';
-				console.log(this.appAspectRatioWrapperStyle);	
-			}
+			// updateSize(){
+			// 	this.currHeight = this.$el.clientHeight;
+			// 	this.currWidth = 1.33 * this.currHeight;
+			// 	this.contentSize = 'height: 100%; width: ' + this.currWidth + 'px;';
+			// },
+			// updateAppAspectRatioWrapperStyle(){
+			// 	//Updates the Website Base Font Size
+			// 	this.appAspectRatioWrapperStyle = 'font-size: ' + (document.body.clientHeight * 0.04) + 'px;';
+			// 	console.log(this.appAspectRatioWrapperStyle);	
+			// }
+		},
+		destroyed(){
+			// window.removeEventListener('resize', this.updateSize);
+			// window.removeEventListener('resize', this.updateAppAspectRatioWrapperStyle);
 		}
 	}
 </script>
@@ -77,6 +74,14 @@
 		padding-bottom: 60px;
 		margin-left: 50px;
 		margin-right: 50px;
+	}
+
+	#app-content{
+		height: 92%;
+	}
+
+	.app-text-color-default{
+		color: #2B2F33;
 	}
 
 </style>

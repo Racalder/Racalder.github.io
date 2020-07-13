@@ -1,24 +1,22 @@
 <template>
-	<div id="header-wrapper" class="row p-0 m-0 justify-content-center justify-content-md-end home-text-bold">
-				<div class="align-text-center nav-bar">
-					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushHome">
-						Home
+	<div id="header-wrapper" class="d-flex home-text-bold">
+				<div id="header-navbar" class="d-flex justify-content-center align-items-center">
+					<div class="nav-text btn btn-primary p-0 app-text-color-default" @click="pushHome">
+						HOME
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushWork">
-						Work
+					<div class="nav-text btn btn-primary p-0 app-text-color-default" @click="pushWork">
+						WORK
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushAbout">
-						About
+					<div class="nav-text btn btn-primary p-0 app-text-color-default" @click="pushAbout">
+						ABOUT
 					</div>
 					<!-- <div class="nav-text align-middle"> /</div> -->
-					<div class="nav-text btn btn-primary p-0 home-text-color-default" @click="pushContact">
-						Photography
+					<div class="nav-text btn btn-primary p-0 app-text-color-default" @click="pushContact">
+						CONTACT
 					</div>
 				</div>
-					<div class="header-border"></div>
-					<div class="header-border" style="background-color: #F1F1F1"></div>
 			</div>
 </template>
 
@@ -44,23 +42,35 @@
 </script>
 
 <style scoped>
-	.nav-bar{
-		word-spacing: 1.3em;
-	}
-	.header-border{
+
+	#header-wrapper{
+		display: flex;
+		justify-content: center;
 		width: 100%;
-		height: 7px;
-		background-color: #1C1C1C;
+		height: 8%;
 	}
+
+	#header-navbar{
+		width: 25%;
+		font-size: 20px;
+	}
+	
 	.nav-text{
-		font-size: 50%;
-		margin-bottom: -3px;
+		/*font-size: 50%;*/
+		/*margin-bottom: -3px;*/
+		font-size: 70%;
+		font-family: poppins, sans-serif;
+		font-weight: 500;
+		font-style: normal;
+
 	}
 
 
 	#header-wrapper .btn-primary{
-		background-color: transparent !important;
+		background-color: transparent;
 		border-color: transparent;
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 
 	.btn-primary:hover, .btn-primary:focus, .btn-primary:active{

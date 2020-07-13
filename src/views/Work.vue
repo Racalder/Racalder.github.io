@@ -1,34 +1,23 @@
 <template>
 	<div id="work-wrapper" class="h-100 w-100">
-		<div class="row h-50 w-100">
-			<div class="col-6 d-flex justify-content-center align-items-center">
-				<WorkCard/>
-			</div>
-			<div class="col-6 d-flex justify-content-center align-items-center">
-				1
-			</div>
-		</div>
-		<div class="row h-50 w-100">
-			<div class="col-6 d-flex justify-content-center align-items-center">
-				2
-			</div>
-			<div class="col-6 d-flex justify-content-center align-items-center">
-				3
-			</div>
+		<div id="work-header" class="d-flex flex-column justify-content-center align-items-center">
+			<div id="work-header-title" class="app-text-size-title app-text-bold">Work</div>
+			<div id="work-header-des" class="app-text-size-subtitle app-text-color-muted app-text-extralight">check out some of my projects</div>
 		</div>
 	</div>
 </template>
 
 <style type="text/css">
 	#work-wrapper{
-		font-size: 30%;
+	}
+
+	#work-header{
+		height: 35%;
 	}
 	
 </style>
 
 <script>
-	import WorkCard from './WorkCard'
-
 	export default{
 		data(){
 			return{
@@ -45,7 +34,7 @@
 
 		},
 		components:{
-			WorkCard,
+			
 		}
 	}
 </script>

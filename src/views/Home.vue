@@ -14,9 +14,9 @@
 			<div id="home-row-text" class="d-flex flex-row text-nowrap">
 				<div id="home-text-left-indicator" class="w-25 d-flex align-items-center justify-content-end"><jam-chevron-circle-left/></div>
 				<div id="home-text-title-col" class="d-flex flex-column w-50 justify-content-center align-items-center">
-					<div id="home-title-center" class="">
-						<div id="home-text-title-wrapper" class="d-flex flex-row"><div id="home-text-title-spacer" style="color:transparent;">I’m a&nbsp;</div><div id="home-text-title" class="home-text-bold">Ramiro Calderon</div></div>
-						<div id="home-text-des-wrapper" class="d-flex flex-row"><div class="home-text-color-muted" >I’m a&nbsp;</div><component :is="selectedDes"></component></div>
+					<div id="home-title-center" >
+						<div id="home-text-title-wrapper" class="d-flex flex-row"><div id="home-text-title-spacer" class="app-text-size-subtitle" style="color:transparent;">I’m a&nbsp;</div><div class="app-text-size-title app-text-bold">Ramiro Calderon</div></div>
+						<div id="home-text-des-wrapper" class="d-flex flex-row app-text-size-subtitle"><div class="app-text-color-muted" >I’m a&nbsp;</div><component :is="selectedDes"></component></div>
 					</div>
 				</div>
 				<div id="home-text-right-indicator" class="w-25 d-flex align-items-center justify-content-start"><jam-chevron-circle-right/></div>
@@ -123,22 +123,22 @@
 		computed: {
 			esColor(){
 				if(this.engSelected){
-					return 'home-text-color-defualt';
+					return 'app-text-color-defualt';
 				}
 				else{
-					return 'home-text-color-' + this.selectedStatement; 
+					return 'app-text-color-' + this.selectedStatement; 
 				}
 			},
 			engColor(){
 				if(this.engSelected){
-					return'home-text-color-' + this.selectedStatement;
+					return'app-text-color-' + this.selectedStatement;
 				}
 				else{
-					return 'home-text-color-defualt'
+					return 'app-text-color-defualt'
 				}
 			},
 			calderonColor(){
-				return 'home-text-color-' + this.selectedStatement;
+				return 'app-text-color-' + this.selectedStatement;
 			}
 		},
 		created(){
@@ -160,19 +160,19 @@
 		},
 		components: {
 			'des-0': {
-				template: '<div class="home-text-color-0 home-des-text-content">mechanical design engineer</div>'
+				template: '<div class="app-text-color-0 home-des-text-content">mechanical design engineer</div>'
 			},
 			'des-1': {
-				template: '<div class="home-text-color-default home-des-text-content">1 Is a <span class="home-text-color-1 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="app-text-color-default home-des-text-content">1 Is a <span class="app-text-color-1 app-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-2': {
-				template: '<div class="home-text-color-default home-des-text-content">2 Is a <span class="home-text-color-2 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="app-text-color-default home-des-text-content">2 Is a <span class="app-text-color-2 app-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-3': {
-				template: '<div class="home-text-color-default home-des-text-content">Is a <span class="home-text-color-3 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="app-text-color-default home-des-text-content">Is a <span class="app-text-color-3 app-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			},
 			'des-load': {
-				template: '<div class="home-text-color-default home-des-text-content">Is a <span class="home-text-color-4 home-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
+				template: '<div class="app-text-color-default home-des-text-content">Is a <span class="app-text-color-4 app-text-bold">product design engineer</span> and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder descriptionI am a product design engineer and this is mostly a placeholder description</div>'
 			}
 		},
 	}
@@ -182,15 +182,8 @@
 
 
 	/*DIVS*/
-	/*#home-text-title-wrapper, #home-text-des-wrapper{
-		position: relative;
-		left: 30%;
-	}*/
-	#home-text-title{
-		font-size: 320%;
-	}
+
 	#home-text-title-spacer, #home-text-des-wrapper{
-		font-size: 250%;
 		font-family: poppins, sans-serif;
 		font-weight: 400;
 		font-style: normal;
@@ -200,7 +193,7 @@
 		height: 35%;
 	}
 	#home-portrait-wrapper{
-		height: 65%;
+		height: 60%;
 		width: 100%;
 		background-image: url("../assets/img/landingpage_portrait.jpg");
 		background-size: contain; 
@@ -267,36 +260,6 @@
 	.home-des-text-content{
 		align-content: center;
 		align-self: center;
-	}
-
-	.home-text-color-default{
-		color: #2B2A2A;
-	}
-	.home-text-color-muted{
-		color: #A19D9D;
-	}
-	.home-text-color-0{
-		/*color: #BF4343;*/
-		color: #CF5C36;
-	}
-	.home-text-color-1{
-		color: #4AA2BF; 
-	}
-	.home-text-color-2{
-		color: #8C6868; 
-	}
-	.home-text-color-3{
-		color: #48C270;
-	}
-
-	.home-text-bold{
-		font-family: gilroy-extrabold;
-	}
-	.home-text-light{
-		/*font-family: gilroy-light;*/
-		font-family: poppins, sans-serif;
-		font-weight: 400;
-		font-style: normal;
 	}
 
 

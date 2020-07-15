@@ -13,6 +13,7 @@
     "feather-icons": "^4.28.0",
     "jam-icons": "^2.0.0",
     "jquery": "^3.5.1",
+    "ks-vue-scrollmagic": "^1.0.2",
     "popper.js": "^1.16.1",
     "sass-resources-loader": "^2.0.3",
     "scrollmagic": "^2.0.7",

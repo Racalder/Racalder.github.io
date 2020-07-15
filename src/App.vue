@@ -68,6 +68,7 @@
 
 	html, body {
 		height: 100%;
+		font-size: 16px;
 	}
 
 	/*-------------------------------------- GLOBAL FONT CLASSES---------------------------------------------*/
@@ -78,6 +79,9 @@
 	}
 	.app-text-color-muted{
 		color: #A19D9D;
+	}
+	.app-text-color-light{
+		color: #f1f1f1;
 	}
 	.app-text-color-0{
 		/*color: #BF4343;*/
@@ -119,6 +123,8 @@
 	}
 	/*-----------------------------------------------------------------------------------*/
 
+	/*-------------------------------------- APP DIVS AND CLASSES ---------------------------------------------*/
+
 	#app-aspect-ratio-wrapper{
 		background-color: #FFFFFF;
 		padding-top: 5%;
@@ -127,7 +133,6 @@
 
 	#app{
 		background-color: #FFFFFF;
-		color: #2B2A2A;
 		padding-top: 40px;
 		padding-bottom: 60px;
 		margin-left: 50px;
@@ -146,6 +151,7 @@
 	.app-text-color-default{
 		color: #2B2F33;
 	}
+	/*-----------------------------------------------------------------------------------*/
 
 </style>
 

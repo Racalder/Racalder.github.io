@@ -1,13 +1,13 @@
 <template>
 	<div id="app-wrapper" class="h-100 w-100 d-flex flex-column">
 		<!-- <header-view></header-view> -->
-		<div id="app-section-intro">	
+		<div id="app-home-section" class="app-section">	
 			<Home/>
 		</div>
-		<div class="section">	
+		<div id="app-work-section" class="app-section">	
 			<Work/>
 		</div>
-		<div class="section">	
+		<div id="app-about-section" class="app-section">	
 			<About/>
 		</div>
 	</div>
@@ -21,38 +21,34 @@
 	export default{
 		data(){
 			return{
-				// contentSize: '',
-				// currHeight: 0,
-				// currWidth: 0,
-				// appAspectRatioWrapperStyle: '', 
+
 			}
 		},
 		created(){
-			// this.appAspectRatioWrapperStyle = 'font-size: ' + (document.body.clientHeight * 0.04) + 'px;';
-			// console.log(this.appAspectRatioWrapperStyle);
-			// this.currHeight = document.body.clientHeight;
-			// this.currWidth = 1.33 * this.currHeight;
-			// this.contentSize = 'height: 100%; width: ' + this.currWidth + 'px;';
-			// this.$nextTick(function(){
-			// 	window.addEventListener('resize', this.updateSize);
-			// 	window.addEventListener('resize', this.updateAppAspectRatioWrapperStyle);
-			// })
+
+		},
+		mounted(){
+			this.$nextTick(this.pinWorkSection);
 		},
 		methods: {
-			// updateSize(){
-			// 	this.currHeight = this.$el.clientHeight;
-			// 	this.currWidth = 1.33 * this.currHeight;
-			// 	this.contentSize = 'height: 100%; width: ' + this.currWidth + 'px;';
-			// },
-			// updateAppAspectRatioWrapperStyle(){
-			// 	//Updates the Website Base Font Size
-			// 	this.appAspectRatioWrapperStyle = 'font-size: ' + (document.body.clientHeight * 0.04) + 'px;';
-			// 	console.log(this.appAspectRatioWrapperStyle);	
-			// }
+			pinWorkSection(){
+				const tl = new this.$gsap.TimelineMax();
+
+				const scene = new this.$scrollmagic.Scene({
+					triggerElement: '#app-work-section',
+					triggerHook: 'onLeave',
+					duration: '200%'
+				})
+				.setPin('#app-work-section')
+				.setTween(tl)
+
+				// Add Scene to ScrollMagic controller 
+				this.$ksvuescr.$emit('addScene', 'pinWorkSection', scene)
+
+			}
 		},
 		destroyed(){
-			// window.removeEventListener('resize', this.updateSize);
-			// window.removeEventListener('resize', this.updateAppAspectRatioWrapperStyle);
+
 		},
 		components: {
 			Home,
@@ -143,13 +139,16 @@
 		height: 100vh;
 	}
 
-	.section, #app-section-intro{
-		/*height: 92%;*/
-		height: 100vh;
-	}
-
 	.app-text-color-default{
 		color: #2B2F33;
+	}
+
+	#app-work-section{
+		width: 100%;
+	}
+
+	#app-about-section{
+		background-color: #EACBD2;
 	}
 	/*-----------------------------------------------------------------------------------*/
 

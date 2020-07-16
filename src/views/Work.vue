@@ -40,6 +40,7 @@
 	}
 	#work-wrapper{
 		position: relative;
+		box-shadow: 0px 0px 40px 20px #f1f1f1 inset;
 	}
 
 	#work-header{
@@ -76,11 +77,29 @@
 				const tween = new this.$gsap.TimelineMax();
 
 				//Add animations to timeline for each WorkCard snapping point
+				let scale_reduc = 0.6;
+
+				tween.add("Card-0", 0.3);
+				tween.add("Card-1", 2.3);
+				tween.add("Card-2", 4.6);
 				tween.delay(0.3);
-				tween.fromTo('.WorkCards-scroll', 2, {y: '0%'}, {y: '-120%', delay: 0.3 ,ease: "power1.inOut"})
-				tween.fromTo('.WorkCards-scroll', 2, {y: '-120%'}, {y: '-239%', delay: 0.3,ease: "power1.inOut"})
-				tween.fromTo('.WorkCards-scroll', 2, {y: '-239%'}, {y: '-358%', delay: 0.3,ease: "power1.inOut"})
+				//Card-0
+				tween.fromTo('.WorkCards-scroll', 1.7, {y: '0%'}, {y: '-120%',ease: "power1.inOut", delay: 0.3}, "Card-0")
+				tween.fromTo('#WorkCard-0', 2, {scaleX: 1, scaleY: 1}, {scaleX: scale_reduc, scaleY: scale_reduc, opacity: 0.7, ease: "power1.inOut"}, "Card-0");
+				tween.fromTo('#WorkCard-1', 2, {scaleX: scale_reduc, scaleY: scale_reduc, opacity: 0.7}, {scaleX: 1, scaleY: 1,opacity: 1, ease: "power1.inOut"}, "Card-0");
+
+				//Card-1
+				tween.fromTo('.WorkCards-scroll', 1.7, {y: '-120%'}, {y: '-239%',ease: "power1.inOut", delay: 0.6} ,"Card-1")
+				tween.fromTo('#WorkCard-1', 2, {scaleX: 1, scaleY: 1}, {scaleX: scale_reduc, scaleY: scale_reduc, opacity: 0.7, ease: "power1.inOut", delay: 0.3}, "Card-1");
+				tween.fromTo('#WorkCard-2', 2, {scaleX: scale_reduc, scaleY: scale_reduc, opacity: 0.7}, {scaleX: 1, scaleY: 1,opacity: 1, ease: "power1.inOut", delay: 0.3}, "Card-1");
+				//Card-2
+				tween.fromTo('.WorkCards-scroll', 1.7, {y: '-239%'}, {y: '-358%',ease: "power1.inOut", delay: 0.6}, "Card-2")
+				tween.fromTo('#WorkCard-2', 2, {scaleX: 1, scaleY: 1}, {scaleX: scale_reduc, scaleY: scale_reduc, opacity: 0.7, ease: "power1.inOut", delay: 0.3}, "Card-2");
+				tween.fromTo('#WorkCard-3', 2, {scaleX: scale_reduc, scaleY: scale_reduc, opacity: 0.7}, {scaleX: 1, scaleY: 1,opacity: 1, ease: "power1.inOut", delay: 0.3}, "Card-2");
+
 				tween.fromTo('.WorkCards-scroll', 1, {},{})
+
+
 
 				//Add TimelineMax to scroll scene
 				scene.setTween(tween);

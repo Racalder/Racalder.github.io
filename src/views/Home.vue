@@ -182,6 +182,9 @@
 
 
 	/*DIVS*/
+	#home-wrapper{
+		
+	}
 
 	#home-text-title-spacer, #home-text-des-wrapper{
 		font-family: poppins, sans-serif;

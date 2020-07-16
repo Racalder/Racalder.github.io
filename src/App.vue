@@ -32,15 +32,13 @@
 		},
 		methods: {
 			pinWorkSection(){
-				const tl = new this.$gsap.TimelineMax();
 
 				const scene = new this.$scrollmagic.Scene({
 					triggerElement: '#app-work-section',
 					triggerHook: 'onLeave',
-					duration: '200%'
+					duration: '300%'
 				})
 				.setPin('#app-work-section')
-				.setTween(tl)
 
 				// Add Scene to ScrollMagic controller 
 				this.$ksvuescr.$emit('addScene', 'pinWorkSection', scene)
@@ -48,6 +46,7 @@
 			}
 		},
 		destroyed(){
+			this.$ksvuescr.$emit('destroy'); 
 
 		},
 		components: {

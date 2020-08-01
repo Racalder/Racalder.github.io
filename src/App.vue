@@ -5,7 +5,7 @@
 			<Home/>
 		</div>
 		<div id="app-work-section" class="app-section">	
-			<Work/>
+			<Work></Work>
 		</div>
 		<div id="app-about-section" class="app-section">	
 			<About/>
@@ -19,37 +19,50 @@
 	import Home from './views/Home.vue'
 	import Work from './views/Work.vue'
 	import About from './views/About.vue'
+	// var controllerHolder; 
 
 	export default{
 		data(){
 			return{
-
+				controllerHolder: Object,
+				appSceneHolder: Object,
 			}
 		},
 		created(){
-
 		},
 		mounted(){
 			this.$nextTick(this.pinWorkSection);
+			// this.pinWorkSection();
 		},
 		methods: {
 			pinWorkSection(){
 
-				const scene = new this.$scrollmagic.Scene({
+				console.log("pinWorkSection Running");
+
+				const tween = new this.$GSAP.TimelineMax();
+
+				tween.fromTo('.WorkCards-scroll', 2, {y: '0%'}, {y: '-360%', ease: "power2.inOut"});
+				tween.fromTo('.WorkCards-scroll', 0.3, {}, {});
+
+				this.controllerHolder = new this.$ScrollMagic.Controller();
+				this.appSceneHolder = new this.$ScrollMagic.Scene({
 					triggerElement: '#app-work-section',
 					triggerHook: 'onLeave',
 					duration: '300%'
 				})
 				.setPin('#app-work-section')
+				.setTween(tween)
+				.addTo(this.controllerHolder)
 
-				// Add Scene to ScrollMagic controller 
-				this.$ksvuescr.$emit('addScene', 'pinWorkSection', scene)
-
+				//Set overwrite properties
+				// this.$GSAP.TweenLite.defaultOverwrite = false;	
 			}
 		},
 		destroyed(){
-			this.$ksvuescr.$emit('destroy'); 
+			// this.$ksvuescr.$emit('destroy'); 
 
+			//Destroy ScrollMagic controller for this component when removed from DOM
+			this.controllerHolder = this.controllerHolder.destroy();
 		},
 		components: {
 			Home,

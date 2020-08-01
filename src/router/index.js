@@ -7,7 +7,7 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/Empty.vue')
   },
   {
     path: '/About',
@@ -24,6 +24,11 @@ Vue.use(VueRouter)
     name: 'Contact',
     component: () => import('../views/Contact.vue')
   },
+  {
+    path: '/JPL',
+    name: 'JPL', 
+    component: () => import('../views/JPL.vue')
+  }
 
 
 ]

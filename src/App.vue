@@ -10,6 +10,8 @@
 		<div id="app-about-section" class="app-section">	
 			<About/>
 		</div>
+
+		<router-view/>	
 	</div>
 </template>
 
@@ -144,10 +146,11 @@
 
 	#app-work-section{
 		width: 100%;
+		background-color: #FFFCF3;
 	}
 
 	#app-about-section{
-		background-color: #EACBD2;
+		background-color: #F3E2E7;
 	}
 	/*-----------------------------------------------------------------------------------*/
 

@@ -12,14 +12,14 @@
 			</div> -->
 
 			<div id="home-row-text" class="d-flex flex-row text-nowrap">
-				<div id="home-text-left-indicator" class="w-25 d-flex align-items-center justify-content-end"><jam-chevron-circle-left/></div>
+				<div id="home-text-left-indicator" class="w-25 d-flex align-items-center justify-content-end"><jam-chevron-left/></div>
 				<div id="home-text-title-col" class="d-flex flex-column w-50 justify-content-center align-items-center">
 					<div id="home-title-center" >
 						<div id="home-text-title-wrapper" class="d-flex flex-row"><div id="home-text-title-spacer" class="app-text-size-subtitle" style="color:transparent;">I’m a&nbsp;</div><div class="app-text-size-title app-text-bold">Ramiro Calderon</div></div>
 						<div id="home-text-des-wrapper" class="d-flex flex-row app-text-size-subtitle"><div class="app-text-color-muted" >I’m a&nbsp;</div><component :is="selectedDes"></component></div>
 					</div>
 				</div>
-				<div id="home-text-right-indicator" class="w-25 d-flex align-items-center justify-content-start"><jam-chevron-circle-right/></div>
+				<div id="home-text-right-indicator" class="w-25 d-flex align-items-center justify-content-start"><jam-chevron-right/></div>
 			</div>
 
 			<div id="home-portrait-wrapper" ref="imgWrapper"></div>
@@ -183,7 +183,7 @@
 
 	/*DIVS*/
 	#home-wrapper{
-		
+
 	}
 
 	#home-text-title-spacer, #home-text-des-wrapper{
@@ -234,10 +234,11 @@
 	.jam:hover{
 		cursor: pointer;
 		opacity: 0.6;
+		fill: #CF5C36;
 	}
 
 	.jam{
-		width: 5%;
+		width: 6%;
 		height: auto;
 		margin-bottom: 2px;
 		margin-left: 2%;

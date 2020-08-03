@@ -85,6 +85,9 @@
 		components:{
 			WorkCard
 		},
+		props: {
+			parentController: Object,
+		},
 		destroyed(){
 
 		}

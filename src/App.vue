@@ -5,7 +5,7 @@
 			<Home/>
 		</div>
 		<div id="app-work-section" class="app-section">	
-			<Work></Work>
+			<Work :parentController="this.controllerHolder"></Work>
 		</div>
 		<div id="app-about-section" class="app-section">	
 			<About/>
@@ -24,15 +24,15 @@
 	export default{
 		data(){
 			return{
-				controllerHolder: Object,
+				controllerHolder: new this.$ScrollMagic.Controller(), 
 				appSceneHolder: Object,
 			}
 		},
 		created(){
+
 		},
 		mounted(){
-			this.$nextTick(this.pinWorkSection);
-			// this.pinWorkSection();
+			this.pinWorkSection();
 		},
 		methods: {
 			pinWorkSection(){
@@ -44,7 +44,6 @@
 				tween.fromTo('.WorkCards-scroll', 2, {y: '0%'}, {y: '-360%', ease: "power2.inOut"});
 				tween.fromTo('.WorkCards-scroll', 0.3, {}, {});
 
-				this.controllerHolder = new this.$ScrollMagic.Controller();
 				this.appSceneHolder = new this.$ScrollMagic.Scene({
 					triggerElement: '#app-work-section',
 					triggerHook: 'onLeave',
@@ -57,6 +56,9 @@
 				//Set overwrite properties
 				// this.$GSAP.TweenLite.defaultOverwrite = false;	
 			}
+		},
+		computed: {
+
 		},
 		destroyed(){
 			// this.$ksvuescr.$emit('destroy'); 
